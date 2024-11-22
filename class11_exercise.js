@@ -126,7 +126,7 @@ function AddUserToRegistry() {
        readline.question("Type the user that you want to add ", _users=>{
         let checkBans = banned.includes (_users); // to check if the user is in the banned list
         if (checkBans) {
-          console.log (` The ${_user} cannot be added because he/she is banned`)
+          console.log (`${_user} cannot be added because he/she is banned`)
         } else {
           users.push(_users);
           //console.log(names); add the user
@@ -159,7 +159,7 @@ function BanUser(){
     readline.question("Type the user that you want to ban ", _banned=>{
      let checkBans = banned.includes(_banned); // to check if the user is already in the banned list
      if (checkBans){
-      console.log (`The ${_banned} cannot be banned because he/she is already banned`)
+      console.log (`${_banned} cannot be banned because he/she is already banned`)
      } else {
      banned.push(_banned);
      }     //console.log(names); add the user to the banned list
