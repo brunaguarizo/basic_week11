@@ -81,16 +81,16 @@ function StartApp() {
       // the other if statements need to be inside/after the quit -- Vien
       
       if (_command === "add"){
-        console.log("Add user to registry");
+      //  console.log("Add user to registry"); // working! can remove this now, might cause confusion -- Vien
         AddUserToRegistry();
       } else if(_command === "check registry"){
-        console.log("Check registry users");
+      //  console.log("Check registry users"); // working! can remove this now, might cause confusion -- Vien
         CheckRegistry();
       } else if(_command === "ban"){
-        console.log("Ban user");
+      //  console.log("Ban user"); // working! can remove this now, might cause confusion -- Vien
         BanUser();
       } else if (_command === "check ban"){
-        console.log("Check the banned users");
+        console.log("Check the banned users"); // there is some issue here. need further checking -- Vien
         CheckBanned();
 
 
@@ -126,7 +126,7 @@ function AddUserToRegistry() {
        readline.question("Type the user that you want to add ", _users=>{
         let checkBans = banned.includes (_users); // to check if the user is in the banned list
         if (checkBans) {
-          console.log (`${_user} cannot be added because he/she is banned`)
+          console.log (`${_users} cannot be added because he/she is banned`) // here should be "_users" -- Vien
         } else {
           users.push(_users);
           //console.log(names); add the user
@@ -160,8 +160,9 @@ function BanUser(){
      let checkBans = banned.includes(_banned); // to check if the user is already in the banned list
      if (checkBans){
       console.log (`${_banned} cannot be banned because he/she is already banned`)
+      StartApp();
      } else {
-     banned.push(_banned);
+     banned.push(_banned); // I cound not remove the banned user to the registry list :()
      }     //console.log(names); add the user to the banned list
      StartApp();
  });
@@ -176,6 +177,7 @@ function CheckBanned(){
   if(settings.checkBans === true){
     for(let i=0; i<banned.length; i++){
       console.log(`The banned user is ${banned[i]}`)
+      StartApp();
   } 
 } else {
   console.log("Permission denied! You can't check the banned users.")
